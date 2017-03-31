@@ -10,7 +10,14 @@ namespace CodeFirstTest.Data
 {
     public class BloggingContext : DbContext
     {
+        public BloggingContext(string connectionStringName)
+            : base (connectionStringName)
+        {
+            //Database.SetInitializer<BloggingContext>(new Initializer());
+        }
+
         public BloggingContext()
+            : base("name=DefaultConnection")
         {
             Database.SetInitializer<BloggingContext>(new Initializer());
         }
