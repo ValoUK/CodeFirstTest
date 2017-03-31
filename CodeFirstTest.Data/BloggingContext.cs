@@ -10,6 +10,11 @@ namespace CodeFirstTest.Data
 {
     public class BloggingContext : DbContext
     {
+        public BloggingContext()
+        {
+            Database.SetInitializer<BloggingContext>(new Initializer());
+        }
+
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
     }
